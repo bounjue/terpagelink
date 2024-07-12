@@ -6,44 +6,101 @@
     <title>Upload Image</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <center><h1>Upload an Image</h1>
-    <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="image" required>
-        <button type="submit" class="button">Upload</button>
-    </form>
-    <section id="gallery">
-        <h2>Gallery</h2></center>
-        <div id="images"></div>
-    </section>
-    <script>
-        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-            const response = await fetch('/upload', {
-                method: 'POST',
-                body: formData
-            });
-            const image = await response.json();
-            const gallery = document.getElementById('images');
-            const img = document.createElement('img');
-            img.src = '/' + image.path;
-            img.alt = image.originalname;
-            gallery.appendChild(img);
-        });
+<body><center>
+    <div id="rolePopup" class="popup">
+        <h2>Select Role</h2>
+        <button id="userButton">User</button>
+        <button id="adminButton">Admin</button>
+        <div id="adminPassword" class="hidden">
+            <input type="password" id="adminPassInput" placeholder="Enter admin password">
+            <button id="adminPassButton">login</button>
+        </div>
+    </div>
 
-        // Load existing images
-        fetch('/images')
-            .then(response => response.json())
-            .then(images => {
-                const gallery = document.getElementById('images');
-                images.forEach(image => {
-                    const img = document.createElement('img');
-                    img.src = '/' + image.path;
-                    img.alt = image.originalname;
-                    gallery.appendChild(img);
-                });
+    
+        <h1>Upload an Image admin only</h1>
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data" class="hidden">
+            <input type="file" name="image" required>
+            <button type="submit" class="button">Upload</button>
+        </form>
+        <section id="gallery">
+            <h2>Gallery</h2>
+        </section>
+        <div id="images"></div>
+    </center>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const rolePopup = document.getElementById('rolePopup');
+            const uploadForm = document.getElementById('uploadForm');
+            const adminButton = document.getElementById('adminButton');
+            const userButton = document.getElementById('userButton');
+            const adminPassword = document.getElementById('adminPassword');
+            const adminPassButton = document.getElementById('adminPassButton');
+            const adminPassInput = document.getElementById('adminPassInput');
+
+            userButton.addEventListener('click', function() {
+                rolePopup.style.display = 'none';
+                uploadForm.style.display = 'none'; // Hide upload form for user
             });
+
+            adminButton.addEventListener('click', function() {
+                adminPassword.classList.remove('hidden');
+            });
+
+            adminPassButton.addEventListener('click', function() {
+                if (adminPassInput.value === '9858') {
+                    rolePopup.style.display = 'none';
+                    uploadForm.classList.remove('hidden'); // Show upload form for admin
+                } else {
+                    alert('Incorrect password');
+                }
+            });
+
+            document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+                event.preventDefault();
+                const formData = new FormData(this);
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                const image = await response.json();
+                const gallery = document.getElementById('images');
+                const img = document.createElement('img');
+                img.src = '/' + image.path;
+                img.alt = image.originalname;
+                gallery.appendChild(img);
+            });
+
+            // Load existing images
+            fetch('/images')
+                .then(response => response.json())
+                .then(images => {
+                    const gallery = document.getElementById('images');
+                    images.forEach(image => {
+                        const img = document.createElement('img');
+                        img.src = '/' + image.path;
+                        img.alt = image.originalname;
+                        gallery.appendChild(img);
+                    });
+                });
+        });
     </script>
+    <style>
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            border-radius:6px ;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
 </body>
 </html>

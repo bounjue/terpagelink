@@ -82,7 +82,42 @@ header p {
 .button:hover {
     background-color: #FFC700;
 }
-
+#adminPassButton:hover {
+    background-color: #8a0505;
+}
+#adminPassButton {
+    background-color: #4d0c1fc9;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 10px;
+}
+#userButton:hover {
+    background-color: #07681f;
+}
+#userButton {
+    background-color: #0a6d94;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 10px;
+}
+#adminButton:hover {
+    background-color: #500d1e;
+}
+#adminButton {
+    background-color: #8f0303;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 10px;
+}
 #who-we-are {
     padding: 50px 20px;
     text-align: center;
