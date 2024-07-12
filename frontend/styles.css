@@ -3,6 +3,44 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
+    background-color: #f4f4f4;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.contact-info {
+    font-size: 0.9em;    text-align: right;
+    color: #333;
 }
 
 header {
@@ -10,6 +48,15 @@ header {
     color: white;
     padding: 20px;
     text-align: center;
+    padding: 50px 20px;
+    background-image: url('https://phoenix-it.co.in/img/generic/viaual-effect2.webp'); /* ใช้ภาพพื้นหลังที่เกี่ยวข้อง */
+    background-size: cover;
+    background-position: center;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 header h1 {
@@ -23,11 +70,13 @@ header p {
 }
 
 .button {
-    background-color: #FFD700;
-    color: #007BFF;
+    background-color: #0e3e98;
+    color: #ffffff;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+    display: inline-block;
+    margin: 10px;
 }
 
 .button:hover {
@@ -35,17 +84,73 @@ header p {
 }
 
 #who-we-are {
-    padding: 20px;
+    padding: 50px 20px;
     text-align: center;
+    background-color: #fff;
 }
 
+#who-we-are h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#images-section {
+    display: flex;
+    max-width: 5000px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff;
+   
+}
+#images-section2 {
+    display: flex;
+    max-width: 5000px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff;
+   
+}
+
+#images-section img {
+    max-width: 450px;   
+    max-height: auto;
+    margin: 0 10px;
+    border: 2px;
+}
+#images-section2 img {
+    max-width: 450px;   
+    max-height: auto;
+    margin: 0 10px;
+    border: 2px;
+}
 footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 0px;
     position: fixed;
     width: 100%;
     bottom: 0;
 }
-    
+@media (min-width: 768px) {
+    header {
+        padding: 100px 20px;
+    }
+
+    header h1 {
+        font-size: 3em;
+    }
+
+    header p {
+        font-size: 1.5em;
+    }
+
+    #who-we-are h2 {
+        font-size: 2.5em;
+    }}
+    img {
+        max-width: 450px; /* ปรับขนาดรูปภาพให้พอดีกับ container */
+        height: auto; /* ปรับความสูงโดยอัตโนมัติ */
+        display: block; /* เพิ่ม display: block; เพื่อให้รูปภาพเรียงกันได้ */
+        margin: 0 auto; /* ปรับตำแหน่งรูปภาพให้ตรงกลาง */
+      }
