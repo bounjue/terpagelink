@@ -4,7 +4,7 @@ const multer = require('multer');
 const path = require('path');
 const app = express();
 
-mongoose.connect('mongodb+srv://ter:1234@terart.nvazrev.mongodb.net/kkkk?retryWrites=true&w=majority&appName=terart')
+mongoose.connect('mongodb+srv://ter:1234@terart.nvazrev.mongodb.net/termongo2?retryWrites=true&w=majority&appName=terart')
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.log(err));
 
