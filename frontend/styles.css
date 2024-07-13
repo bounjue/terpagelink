@@ -156,12 +156,14 @@ header p {
     max-height: auto;
     margin: 0 10px;
     border: 2px;
+    border-radius: 15px;
 }
 #images-section2 img {
     max-width: 450px;   
     max-height: auto;
     margin: 0 10px;
     border: 2px;
+    border-radius: 15px;
 }
 footer {
     background-color: #333;
@@ -273,6 +275,7 @@ footer {
     .image {
         max-width: 100%;
         margin: 10px 0;
+        
     }
     
     
@@ -353,6 +356,7 @@ footer {
     #who-we-are h2 {
         font-size: 2.5em;
     }
+    
 }
 
 
@@ -391,7 +395,7 @@ footer {
     width: 100%;
     height: auto;
     opacity: 0;
-    top: 20%;
+    top: 28%;
     transform: translateY(-50%);
     transition: transform 1s, opacity 1s;
 }
