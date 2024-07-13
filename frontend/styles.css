@@ -131,19 +131,24 @@ header p {
 
 #images-section {
     display: flex;
-    max-width: 5080px;
+    
     justify-content: center;
-    padding: 20px;
-    background-color: #fff;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 9px;
+    box-shadow: #333;
+    align-content: center;
    
 }
 #images-section2 {
-    display: flex;
-    max-width: 5080px;
+   display: flex;
+ 
     justify-content: center;
-    padding: 20px;
-    background-color: #fff;
-   
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 9px;
+    box-shadow: #333;
+    align-content: center;
 }
 
 #images-section img {
@@ -253,6 +258,24 @@ footer {
         max-width: 100%;
         margin: 10px 0;
     }
+    .container {
+        flex-direction: column;
+
+    }
+    .container2 {
+        position: relative;
+        width: 100%;
+        height: 350px;
+        border-radius: 15px;
+        background-color: #0041b9;
+    }
+    
+    .image {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+    
+    
 }
 
 /* Tablets */
@@ -330,4 +353,61 @@ footer {
     #who-we-are h2 {
         font-size: 2.5em;
     }
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.content, .more-content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border-radius: 15px;
+    background-color: #8a2e04;
+    
+}
+.container2 {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border-radius: 15px;
+    background-color: #0041b9;
+}
+
+.image {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    top: 28%;
+    transform: translateY(-50%);
+    transition: transform 1s, opacity 1s;
+}
+
+.left {
+    left: -150px;
+}
+
+.right {
+    right: -150px;
+}
+
+.image.animate-left {
+    transform: translateY(-50%) translateX(150px);
+    opacity: 1;
+}
+
+.image.animate-right {
+    transform: translateY(-50%) translateX(-150px);
+    opacity: 1;
+    
 }
